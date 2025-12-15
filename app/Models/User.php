@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nisn', // Tambahan: Untuk nomor induk siswa
+        'role', // Tambahan: Untuk membedakan admin/guru/siswa
     ];
 
     /**
@@ -44,5 +46,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Relasi: Satu User memiliki banyak data Absensi
+     */
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    /**
+     * Helper: Ambil data absensi hari ini (jika ada)
+     */
+    public function absensiHariIni()
+    {
+        return $this->hasOne(Attendance::class)
+            ->where('date', date('Y-m-d'));
     }
 }
