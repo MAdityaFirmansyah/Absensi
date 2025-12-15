@@ -13,16 +13,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+                        {{ __('Data Siswa') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.*')">
                         {{ __('Data Absensi') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('Tentang RPL') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
-                        {{ __('Notifikasi') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -73,19 +73,17 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-        <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
-               {{ __('Data Siswa') }}
-        </x-nav-link>
+
+            <x-responsive-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+                {{ __('Data Siswa') }}
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('attendances.index')" :active="request()->routeIs('attendances.*')">
                 {{ __('Data Absensi') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('Tentang RPL') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
-                {{ __('Notifikasi') }}
             </x-responsive-nav-link>
         </div>
 
